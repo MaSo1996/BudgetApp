@@ -10,7 +10,9 @@ void BudgetManager::addOperation(const Type type)
         expanses.push_back(typeOperationDetails());
         break;
     case INCOME:
-        incomes.push_back(typeOperationDetails());
+        Operation operation = typeOperationDetails();
+        incomes.push_back(operation);
+        fileWithIncomes.addOperationToFile(operation,type);
         break;
     }
 }

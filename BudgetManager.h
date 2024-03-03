@@ -6,6 +6,8 @@
 #include "Type.h"
 #include "Operation.h"
 #include "DateMethods.h"
+#include "FileWithExpanses.h"
+#include "FileWithIncomes.h"
 
 using namespace std;
 
@@ -14,12 +16,13 @@ class BudgetManager
     const int LOGGED_USER_ID;
 
     DateMethods dateMethods;
+    FileWithIncomes fileWithIncomes;
 
     vector <Operation> incomes;
     vector <Operation> expanses;
 
 public:
-    BudgetManager(int loggedUserId) : LOGGED_USER_ID(loggedUserId)
+    BudgetManager(int loggedUserId, string nameOfFile) : LOGGED_USER_ID(loggedUserId), fileWithIncomes(nameOfFile)
     {
 
     }

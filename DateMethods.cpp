@@ -132,14 +132,6 @@ string DateMethods::getCurrentDate()
     return year + "-" + month + "-" + day;
 }
 
-int main()
-{
-    DateMethods dateMethods;
-    cout << dateMethods.getCurrentDate() << endl;
-    cout << dateMethods.getLastMonthFirstDay() << endl;
-    cout << dateMethods.getLastMonthLastDay() << endl;
-}
-
 string DateMethods::getLastMonthLastDay()
 {
     cin.sync();

@@ -3,7 +3,9 @@
 
 #include <iostream>
 
-#include "Markup.h";
+#include "Markup.h"
+#include "Operation.h"
+#include "Type.h"
 
 using namespace std;
 
@@ -17,9 +19,8 @@ public:
 
     }
 
-    bool checkIfFileIsEmpty(CMarkup & workingFile);
     string getFileName();
-    void createFile(CMarkup & workingFile);
+    void addOperationToFile(Operation operation, Type type);
 };
 
 #endif // header guard
