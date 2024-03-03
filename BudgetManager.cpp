@@ -65,10 +65,10 @@ void BudgetManager::loadOperationsFromFile(const Type type)
     switch (type)
     {
     case INCOME:
-        incomes = fileWithIncomes.loadOperationsFromFile(type);
+        incomes = fileWithIncomes.loadOperationsFromFile(type, LOGGED_USER_ID);
         break;
     case EXPANSE:
-        expanses = fileWithExpanses.loadOperationsFromFile(type);
+        expanses = fileWithExpanses.loadOperationsFromFile(type, LOGGED_USER_ID);
         break;
     }
 }

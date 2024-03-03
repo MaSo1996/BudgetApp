@@ -10,6 +10,9 @@ class AuxilaryMethods
 public:
     static string readLine();
     static double readAmount();
+    static char chooseFromMainMenu();
+    static char chooseFromUserMenu();
+    static char getChar();
 };
 
 #endif // header guard
