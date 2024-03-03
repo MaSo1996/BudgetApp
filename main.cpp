@@ -8,7 +8,10 @@ using namespace std;
 
 int main()
 {
-    BudgetManager budgetManager(1,"Incomes.xml");
-    UserManager userManager("Users.xml");
-    budgetManager.addOperation(INCOME);
+    BudgetManager budgetManager(1,"incomes.xml","expanses.xml");
+    UserManager userManager("users.xml");
+    //budgetManager.addOperation(INCOME);
+    budgetManager.loadOperationsFromFile(EXPANSE);
+    budgetManager.addOperation(EXPANSE);
+    budgetManager.showExpanses();
 }

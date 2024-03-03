@@ -18,8 +18,8 @@ public:
     string getLastDayOfCurrentMonth();
     bool validateDate(string year, string month, string day);
     string getCurrentDate();
-    string getLastMonthFirstDay();
-    string getLastMonthLastDay();
+    string getFirstDayOfLastMonth();
+    string getLastDayOfLastMonth();
 };
 #endif // header guard
 

@@ -70,4 +70,71 @@ void XmlFile::addOperationToFile(Operation operation, Type type)
         workingFile.RestorePos();
         workingFile.Save(getFileName());
     }
+
+    lastOperationId++;
+}
+
+vector <Operation> XmlFile::loadOperationsFromFile(Type type)
+{
+    CMarkup workingFile;
+    MCD_STR strXML;
+
+    Operation operation;
+    vector <Operation> operations;
+
+    workingFile.Load(getFileName());
+
+    switch (type)
+    {
+    case INCOME:
+        workingFile.FindElem("Incomes");
+        workingFile.IntoElem();
+        break;
+
+    case EXPANSE:
+        workingFile.FindElem("Expanses");
+        workingFile.IntoElem();
+        break;
+    }
+
+    while(workingFile.FindElem("Operation"))
+    {
+        workingFile.IntoElem();
+
+        workingFile.FindElem("id");
+        strXML = workingFile.GetData();
+        operation.id = stoi(strXML);
+        lastOperationId = stoi(strXML);
+
+        workingFile.FindElem("userId ");
+        strXML = workingFile.GetData();
+        operation.userId = stoi(strXML);
+
+        workingFile.FindElem("dateAsInt");
+        strXML = workingFile.GetData();
+        operation.dateAsInt = stoi(strXML);
+
+        workingFile.FindElem("date");
+        strXML = workingFile.GetData();
+        operation.date = strXML;
+
+        workingFile.FindElem("item");
+        strXML = workingFile.GetData();
+        operation.item = strXML;
+
+        workingFile.FindElem("amount");
+        strXML = workingFile.GetData();
+        operation.amount = stod(strXML);
+
+        workingFile.OutOfElem();
+
+        operations.push_back(operation);
+    }
+
+    return operations;
+}
+
+int XmlFile::getLastOperationId()
+{
+    return lastOperationId;
 }

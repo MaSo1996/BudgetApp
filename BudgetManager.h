@@ -17,18 +17,23 @@ class BudgetManager
 
     DateMethods dateMethods;
     FileWithIncomes fileWithIncomes;
+    FileWithExpanses fileWithExpanses;
 
     vector <Operation> incomes;
     vector <Operation> expanses;
 
 public:
-    BudgetManager(int loggedUserId, string nameOfFile) : LOGGED_USER_ID(loggedUserId), fileWithIncomes(nameOfFile)
+    BudgetManager(int loggedUserId, string nameOfFileWithIncomes, string nameOfFileWithExpanses) :
+        LOGGED_USER_ID(loggedUserId),
+        fileWithIncomes(nameOfFileWithIncomes),
+        fileWithExpanses(nameOfFileWithExpanses)
     {
 
     }
 
     void addOperation(const Type type);
-    Operation typeOperationDetails();
+    void loadOperationsFromFile(const Type type);
+    Operation typeOperationDetails(int lastOperationId);
     void showOperationDetails(Operation operation);
     void showIncomes();
     void showExpanses();

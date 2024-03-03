@@ -132,7 +132,7 @@ string DateMethods::getCurrentDate()
     return year + "-" + month + "-" + day;
 }
 
-string DateMethods::getLastMonthLastDay()
+string DateMethods::getLastDayOfLastMonth()
 {
     cin.sync();
 
@@ -170,7 +170,7 @@ string DateMethods::getLastMonthLastDay()
     }
 }
 
-string DateMethods::getLastMonthFirstDay()
+string DateMethods::getFirstDayOfLastMonth()
 {
     cin.sync();
 
