@@ -28,7 +28,8 @@ public:
         fileWithIncomes(nameOfFileWithIncomes),
         fileWithExpanses(nameOfFileWithExpanses)
     {
-
+        loadOperationsFromFile(INCOME);
+        loadOperationsFromFile(EXPANSE);
     }
 
     void addOperation(const Type type);

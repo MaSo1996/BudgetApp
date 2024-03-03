@@ -61,25 +61,31 @@ vector <User> FileWithUsers::loadUsersFromFile()
     while(workingFile.FindElem("User"))
     {
         workingFile.IntoElem();
+
         workingFile.FindElem("id");
         strXML = workingFile.GetData();
         user.id = stoi(strXML);
+        lastUserId = stoi(strXML);
+
         workingFile.FindElem("firstName");
         strXML = workingFile.GetData();
         user.firstName = strXML;
+
         workingFile.FindElem("lastName");
         strXML = workingFile.GetData();
         user.lastName = strXML;
+
         workingFile.FindElem("login");
         strXML = workingFile.GetData();
         user.login = strXML;
+
         workingFile.FindElem("password");
         strXML = workingFile.GetData();
         user.password = strXML;
+
         workingFile.OutOfElem();
 
         users.push_back(user);
-        lastUserId++;
     }
 
     return users;

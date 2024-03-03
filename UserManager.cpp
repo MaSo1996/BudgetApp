@@ -123,3 +123,8 @@ void UserManager::changeUserPassword()
 
     return;
 }
+
+int UserManager::getLoggedUserId()
+{
+    return loggedUserId;
+}

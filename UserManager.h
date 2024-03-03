@@ -27,6 +27,8 @@ public:
     void loginUser();
     void loadUsers();
     void changeUserPassword();
+
+    int getLoggedUserId();
 };
 
 #endif // header guard
