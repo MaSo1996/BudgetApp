@@ -23,7 +23,7 @@ public:
 
     string getFileName();
     void addOperationToFile(Operation operation, Type type);
-    vector <Operation> loadOperationsFromFile(Type type);
+    vector <Operation> loadOperationsFromFile(Type type, int loggedUserId);
     int getLastOperationId();
 };
 

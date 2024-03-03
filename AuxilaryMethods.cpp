@@ -20,3 +20,58 @@ double AuxilaryMethods::readAmount()
 
     return stod(amount);
 }
+
+char AuxilaryMethods::chooseFromMainMenu()
+{
+    system("cls");
+
+    cout << "MAIN MENU" << endl << "--- --- --- --- ---" << endl;
+    cout << "1. Register new user" << endl;
+    cout << "2. Login" << endl;
+    cout << "9. Exit program" << endl;
+    cout << "--- --- --- --- ---" << endl << endl;
+
+    cout << "Choose option: ";
+
+    return getChar();
+}
+
+char AuxilaryMethods::chooseFromUserMenu()
+{
+    system("cls");
+
+    cout << "USER MENU" << endl << "--- --- --- --- ---" << endl;
+    cout << "1. Add income" << endl;
+    cout << "2. Add expanse" << endl;
+    cout << "3. Show balance from current month" << endl;
+    cout << "4. Show balance from previous month" << endl;
+    cout << "5. Show balance from selected period" << endl;
+    cout << "6. Change password" << endl;
+    cout << "7. Log out" << endl;
+    cout << "9. Exit program" << endl;
+    cout << "--- --- --- --- ---" << endl << endl;
+
+    cout << "Choose option: ";
+
+    return getChar();
+}
+
+
+char AuxilaryMethods::getChar()
+{
+    string input = "";
+    char character  = {0};
+
+    while (true)
+    {
+        getline(cin, input);
+
+        if (input.length() == 1)
+        {
+            character = input[0];
+            break;
+        }
+        cout << "It's not a single character - try again" << endl;
+    }
+    return character;
+}

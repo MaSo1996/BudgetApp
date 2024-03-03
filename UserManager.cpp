@@ -62,7 +62,8 @@ void UserManager::loginUser()
     if (passwordToCheck.empty())
     {
         cout << "No user with that login found!";
-        exit(0);
+        getchar();
+        return;
     }
 
     string password;
@@ -77,14 +78,22 @@ void UserManager::loginUser()
         {
             cout << "User successfully logged in" << endl;
             loggedUserId = idToGet;
+            getchar();
             return;
         }
 
         if (i == 2)
         {
             cout << "Too many atempts to log in. Access denied" << endl;
+            getchar();
+            return;
         }
     }
+}
+
+void UserManager::logOutUser()
+{
+    loggedUserId = 0;
 }
 
 void UserManager::loadUsers()

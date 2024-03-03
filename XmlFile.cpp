@@ -24,7 +24,6 @@ void XmlFile::addOperationToFile(Operation operation, Type type)
         case EXPANSE:
             workingFile.AddElem("Expanses");
             break;
-
         }
 
         workingFile.IntoElem();
@@ -74,7 +73,7 @@ void XmlFile::addOperationToFile(Operation operation, Type type)
     lastOperationId++;
 }
 
-vector <Operation> XmlFile::loadOperationsFromFile(Type type)
+vector <Operation> XmlFile::loadOperationsFromFile(Type type, int loggedUserId)
 {
     CMarkup workingFile;
     MCD_STR strXML;
@@ -104,31 +103,35 @@ vector <Operation> XmlFile::loadOperationsFromFile(Type type)
         workingFile.FindElem("id");
         strXML = workingFile.GetData();
         operation.id = stoi(strXML);
-        lastOperationId = stoi(strXML);
+
+        lastOperationId = operation.id;
 
         workingFile.FindElem("userId ");
         strXML = workingFile.GetData();
         operation.userId = stoi(strXML);
 
-        workingFile.FindElem("dateAsInt");
-        strXML = workingFile.GetData();
-        operation.dateAsInt = stoi(strXML);
+        if (operation.userId == loggedUserId)
+        {
+            workingFile.FindElem("dateAsInt");
+            strXML = workingFile.GetData();
+            operation.dateAsInt = stoi(strXML);
 
-        workingFile.FindElem("date");
-        strXML = workingFile.GetData();
-        operation.date = strXML;
+            workingFile.FindElem("date");
+            strXML = workingFile.GetData();
+            operation.date = strXML;
 
-        workingFile.FindElem("item");
-        strXML = workingFile.GetData();
-        operation.item = strXML;
+            workingFile.FindElem("item");
+            strXML = workingFile.GetData();
+            operation.item = strXML;
 
-        workingFile.FindElem("amount");
-        strXML = workingFile.GetData();
-        operation.amount = stod(strXML);
+            workingFile.FindElem("amount");
+            strXML = workingFile.GetData();
+            operation.amount = stod(strXML);
 
-        workingFile.OutOfElem();
+            workingFile.OutOfElem();
 
-        operations.push_back(operation);
+            operations.push_back(operation);
+        }
     }
 
     return operations;
