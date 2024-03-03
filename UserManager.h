@@ -25,6 +25,7 @@ public:
     void showUserData(User user);
     void showAllUsers();
     void loginUser();
+    void logOutUser();
     void loadUsers();
     void changeUserPassword();
 

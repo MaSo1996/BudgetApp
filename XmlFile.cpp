@@ -104,6 +104,8 @@ vector <Operation> XmlFile::loadOperationsFromFile(Type type, int loggedUserId)
         strXML = workingFile.GetData();
         operation.id = stoi(strXML);
 
+        lastOperationId = operation.id;
+
         workingFile.FindElem("userId ");
         strXML = workingFile.GetData();
         operation.userId = stoi(strXML);
@@ -129,8 +131,6 @@ vector <Operation> XmlFile::loadOperationsFromFile(Type type, int loggedUserId)
             workingFile.OutOfElem();
 
             operations.push_back(operation);
-
-            lastOperationId = operation.id;
         }
     }
 

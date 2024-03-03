@@ -27,6 +27,7 @@ Operation BudgetManager::typeOperationDetails(int lastOperationId)
     Operation operation;
 
     operation.id = (lastOperationId + 1);
+    operation.userId = LOGGED_USER_ID;
     operation.date = dateMethods.getDate();
     operation.dateAsInt = dateMethods.convertDateStringToInt(operation.date);
     cout << "What was operation about: ";

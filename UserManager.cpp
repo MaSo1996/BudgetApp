@@ -91,6 +91,11 @@ void UserManager::loginUser()
     }
 }
 
+void UserManager::logOutUser()
+{
+    loggedUserId = 0;
+}
+
 void UserManager::loadUsers()
 {
     users = fileWithUsers.loadUsersFromFile();

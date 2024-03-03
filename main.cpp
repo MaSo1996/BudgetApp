@@ -2,6 +2,7 @@
 
 #include "BudgetAppMain.h"
 #include "AuxilaryMethods.h"
+#include "Type.h"
 
 using namespace std;
 
@@ -35,6 +36,21 @@ int main()
         else
         {
             choice = AuxilaryMethods::chooseFromUserMenu();
+
+            switch(choice)
+            {
+            case '1':
+                budgetAppMain.addIncome(INCOME);
+                break;
+            case '2':
+                budgetAppMain.addExpanse(EXPANSE);
+                break;
+            case '7':
+                budgetAppMain.userLogout();
+                break;
+            case '9':
+                exit(0);
+            }
         }
     }
 }

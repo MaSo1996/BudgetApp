@@ -7,8 +7,8 @@ using namespace std;
 
 struct Operation
 {
-    int id = 1;
-    int userId = 1;
+    int id;
+    int userId;
     int dateAsInt;
     string date;
     string item;
