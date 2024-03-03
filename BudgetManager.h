@@ -36,8 +36,11 @@ public:
     void loadOperationsFromFile(const Type type);
     Operation typeOperationDetails(int lastOperationId);
     void showOperationDetails(Operation operation);
-    void showIncomes();
-    void showExpanses();
+    void showIncomesFromChosenPeriod();
+    void showExpansesFromChosenPeriod();
+    double sumIncomesFromChosenPeriod();
+    double sumExpansesFromChosenPeriod();
+    double showBalanceFromChosenPeriod();
 };
 #endif // header guard
 

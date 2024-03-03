@@ -45,6 +45,9 @@ int main()
             case '2':
                 budgetAppMain.addExpanse(EXPANSE);
                 break;
+            case '6':
+                budgetAppMain.changeUserPassword();
+                break;
             case '7':
                 budgetAppMain.userLogout();
                 break;
