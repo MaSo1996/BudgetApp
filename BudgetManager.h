@@ -36,8 +36,8 @@ public:
     void addOperation(Type type);
     void loadOperationsFromFile(Type type);
     Operation typeOperationDetails(int lastOperationId);
-    void showOperationDetails(Operation operation);
-    void showOperationsFromChosenPeriod(string firstDate, string secondDate, vector <Operation> operations);
+    void showOperationDetails(Operation operation, Type type);
+    void showOperationsFromChosenPeriod(string firstDate, string secondDate, vector <Operation> operations, Type type);
     double sumOperationsFromChosenPeriod(string firstDate, string secondDate, vector <Operation> operations);
     void showBalanceFromChosenPeriod(string firstDate, string secondDate);
     vector <Operation> createVectorOfOperationsFromChosenPeriod(string firstDate, string secondDate, vector <Operation> operations);

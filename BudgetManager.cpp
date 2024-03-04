@@ -65,9 +65,17 @@ Operation BudgetManager::typeOperationDetails(int lastOperationId)
     return operation;
 }
 
-void BudgetManager::showOperationDetails(Operation operation)
+void BudgetManager::showOperationDetails(Operation operation, Type type)
 {
-    cout << "Operation: " << operation.item << ", date: " << operation.date << ", amount: " << operation.amount << endl;
+    switch (type)
+    {
+    case EXPANSE:
+        cout << "Expanse: " << operation.item << ", date: " << operation.date << ", amount: " << operation.amount << endl;
+        break;
+    case INCOME:
+        cout << "Income: " << operation.item << ", date: " << operation.date << ", amount: " << operation.amount << endl;
+        break;
+    }
 }
 
 void BudgetManager::loadOperationsFromFile(Type type)
@@ -83,11 +91,11 @@ void BudgetManager::loadOperationsFromFile(Type type)
     }
 }
 
-void BudgetManager::showOperationsFromChosenPeriod(string firstDate, string secondDate, vector <Operation> operations)
+void BudgetManager::showOperationsFromChosenPeriod(string firstDate, string secondDate, vector <Operation> operations, Type type)
 {
     for (size_t i = 0; i < operations.size(); i++)
     {
-        showOperationDetails(operations[i]);
+        showOperationDetails(operations[i], type);
     }
 }
 
@@ -116,8 +124,8 @@ void BudgetManager::showBalanceFromChosenPeriod(string firstDate, string secondD
     sort(customIncomes.begin(),customIncomes.end());
     sort(customExpanses.begin(),customExpanses.end());
 
-    showOperationsFromChosenPeriod(firstDate,secondDate,customIncomes);
-    showOperationsFromChosenPeriod(firstDate,secondDate,customExpanses);
+    showOperationsFromChosenPeriod(firstDate,secondDate,customIncomes,INCOME);
+    showOperationsFromChosenPeriod(firstDate,secondDate,customExpanses,EXPANSE);
 
     cout << "Balance from: " << firstDate << " to: " << secondDate << ": " << (sumOfIncomes - sumOfExpanses) << endl;
     getchar();

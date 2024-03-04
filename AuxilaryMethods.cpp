@@ -23,6 +23,7 @@ double AuxilaryMethods::readAmount()
 
 char AuxilaryMethods::chooseFromMainMenu()
 {
+    cin.sync();
     system("cls");
 
     cout << "MAIN MENU" << endl << "--- --- --- --- ---" << endl;
@@ -38,6 +39,7 @@ char AuxilaryMethods::chooseFromMainMenu()
 
 char AuxilaryMethods::chooseFromUserMenu()
 {
+    cin.sync();
     system("cls");
 
     cout << "USER MENU" << endl << "--- --- --- --- ---" << endl;
