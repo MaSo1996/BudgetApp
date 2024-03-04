@@ -44,6 +44,13 @@ void UserManager::showAllUsers()
 
 void UserManager::loginUser()
 {
+    if (users.empty())
+    {
+        cout << "There are no users";
+        getchar();
+        return;
+    }
+
     cout << "Type user's login: ";
     string login = AuxilaryMethods::readLine();
     string passwordToCheck = "";
