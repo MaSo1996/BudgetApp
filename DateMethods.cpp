@@ -17,12 +17,6 @@ string DateMethods::getDate()
     getline(cin,phrase);
     day = phrase;
 
-    if (!validateDate(year,month,day))
-    {
-        cout << "Incorrect date";
-        exit(0);
-    }
-
     return (year + "-" + month + "-" + day);
 }
 
@@ -71,6 +65,22 @@ int DateMethods::returnNumberOfDaysInMonth(string year, string month)
     return daysOfMonths[stoi(month)];
 }
 
+string DateMethods::getFirstDayOfCurrentMonth()
+{
+    cin.sync();
+
+    stringstream ss(getCurrentDate());
+    string year, month, day, phrase;
+
+    getline(ss,phrase,'-');
+    year = phrase;
+    getline(ss,phrase,'-');
+    month = phrase;
+    day = "01";
+
+    return (year + "-" + month + "-" + day);
+}
+
 string DateMethods::getLastDayOfCurrentMonth()
 {
     cin.sync();
@@ -87,8 +97,20 @@ string DateMethods::getLastDayOfCurrentMonth()
     return (year + "-" + month + "-" + day);
 }
 
-bool DateMethods::validateDate(string year, string month, string day)
+bool DateMethods::validateDate(string date)
 {
+    cin.sync();
+
+    stringstream ss(date);
+    string year, month, day, phrase;
+
+    getline(ss,phrase,'-');
+    year = phrase;
+    getline(ss,phrase,'-');
+    month = phrase;
+    getline(ss,phrase);
+    day = phrase;
+
     int dateAsInt = stoi(year + month + day);
 
     int numberOfDaysInMonth = returnNumberOfDaysInMonth(year, month);

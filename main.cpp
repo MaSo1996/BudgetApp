@@ -45,6 +45,15 @@ int main()
             case '2':
                 budgetAppMain.addExpanse(EXPANSE);
                 break;
+            case '3':
+                budgetAppMain.showBalanceFromCurrentMonth();
+                break;
+            case '4':
+                budgetAppMain.showBalanceFromPreviousMonth();
+                break;
+            case '5':
+                budgetAppMain.showBalanceFromCustomPeriod();
+                break;
             case '6':
                 budgetAppMain.changeUserPassword();
                 break;
