@@ -15,8 +15,9 @@ public:
     string getDate();
     int convertDateStringToInt(string date);
     int returnNumberOfDaysInMonth(string year, string month);
+    string getFirstDayOfCurrentMonth();
     string getLastDayOfCurrentMonth();
-    bool validateDate(string year, string month, string day);
+    bool validateDate(string date);
     string getCurrentDate();
     string getFirstDayOfLastMonth();
     string getLastDayOfLastMonth();

@@ -2,6 +2,7 @@
 #define HEADER_DA5E5970ACF25108
 
 #include <iostream>
+#include <algorithm>
 #include <vector>
 #include "Type.h"
 #include "Operation.h"
@@ -32,15 +33,14 @@ public:
         loadOperationsFromFile(EXPANSE);
     }
 
-    void addOperation(const Type type);
-    void loadOperationsFromFile(const Type type);
+    void addOperation(Type type);
+    void loadOperationsFromFile(Type type);
     Operation typeOperationDetails(int lastOperationId);
     void showOperationDetails(Operation operation);
-    void showIncomesFromChosenPeriod();
-    void showExpansesFromChosenPeriod();
-    double sumIncomesFromChosenPeriod();
-    double sumExpansesFromChosenPeriod();
-    double showBalanceFromChosenPeriod();
+    void showOperationsFromChosenPeriod(string firstDate, string secondDate, vector <Operation> operations);
+    double sumOperationsFromChosenPeriod(string firstDate, string secondDate, vector <Operation> operations);
+    void showBalanceFromChosenPeriod(string firstDate, string secondDate);
+    vector <Operation> createVectorOfOperationsFromChosenPeriod(string firstDate, string secondDate, vector <Operation> operations);
 };
 #endif // header guard
 

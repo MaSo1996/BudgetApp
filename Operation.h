@@ -7,12 +7,18 @@ using namespace std;
 
 struct Operation
 {
-    int id;
-    int userId;
-    int dateAsInt;
-    string date;
-    string item;
-    double amount;
+    int id {};
+    int userId {};
+    int dateAsInt {};
+    string date {};
+    string item {};
+    double amount {};
+
+    bool operator < (const Operation & operation) const
+    {
+        return (dateAsInt < operation.dateAsInt);
+    }
 };
+
 #endif // header guard
 
