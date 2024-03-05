@@ -15,11 +15,17 @@ class BudgetAppMain
     BudgetManager * budgetManager;
     DateMethods dateMethods;
 
+    const string INCOMES_FILE_NAME;
+    const string EXPANSES_FILE_NAME;
+
 public:
-    BudgetAppMain(string userFileName) :
-        userManager(userFileName)
+    BudgetAppMain(string userFileName, string incomesFileName, string expanseFileName) :
+        userManager(userFileName),
+        INCOMES_FILE_NAME(expanseFileName),
+        EXPANSES_FILE_NAME(expanseFileName)
     {
         budgetManager = NULL;
+        loadUsersFromFile();
     }
     ~BudgetAppMain()
     {
@@ -32,8 +38,8 @@ public:
     void userLogin();
     void userLogout();
     bool isUserLoggedIn();
-    void addIncome(Type type);
-    void addExpanse(Type type);
+    void addIncome();
+    void addExpanse();
     void changeUserPassword();
     void showBalanceFromCurrentMonth();
     void showBalanceFromPreviousMonth();
