@@ -21,7 +21,7 @@ class BudgetAppMain
 public:
     BudgetAppMain(string userFileName, string incomesFileName, string expanseFileName) :
         userManager(userFileName),
-        INCOMES_FILE_NAME(expanseFileName),
+        INCOMES_FILE_NAME(incomesFileName),
         EXPANSES_FILE_NAME(expanseFileName)
     {
         budgetManager = NULL;
