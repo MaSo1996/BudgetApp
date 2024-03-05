@@ -10,9 +10,7 @@ int main()
 {
     char choice;
 
-    BudgetAppMain budgetAppMain("users.xml");
-
-    budgetAppMain.loadUsersFromFile();
+    BudgetAppMain budgetAppMain("users.xml","incomes.xml","expanses.xml");
 
     while(true)
     {
@@ -40,10 +38,10 @@ int main()
             switch(choice)
             {
             case '1':
-                budgetAppMain.addIncome(INCOME);
+                budgetAppMain.addIncome();
                 break;
             case '2':
-                budgetAppMain.addExpanse(EXPANSE);
+                budgetAppMain.addExpanse();
                 break;
             case '3':
                 budgetAppMain.showBalanceFromCurrentMonth();

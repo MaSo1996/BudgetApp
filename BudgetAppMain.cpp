@@ -18,7 +18,7 @@ void BudgetAppMain::userLogin()
 
     if (isUserLoggedIn())
     {
-        budgetManager = new BudgetManager(userManager.getLoggedUserId(),"incomes.xml","expanses.xml");
+        budgetManager = new BudgetManager(userManager.getLoggedUserId(),INCOMES_FILE_NAME,EXPANSES_FILE_NAME);
     }
 }
 
@@ -41,14 +41,14 @@ bool BudgetAppMain::isUserLoggedIn()
     }
 }
 
-void BudgetAppMain::addIncome(Type type)
+void BudgetAppMain::addIncome()
 {
-    budgetManager->addOperation(type);
+    budgetManager->addOperation(INCOME);
 }
 
-void BudgetAppMain::addExpanse(Type type)
+void BudgetAppMain::addExpanse()
 {
-    budgetManager->addOperation(type);
+    budgetManager->addOperation(EXPANSE);
 }
 
 void BudgetAppMain::changeUserPassword()
